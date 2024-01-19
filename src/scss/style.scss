@@ -1,0 +1,78 @@
+@use 'sass:math';
+
+@import url('https://fonts.googleapis.com/css2?family=Roboto:ital,wght@0,400;0,500;0,700;0,900;1,400&display=swap');
+
+@import './fonts/fonts';
+@import './fonts/icons';
+
+@import 'base/vars';
+@import 'base/mixins';
+@import 'base/null';
+@import 'base/menu';
+
+body {
+	.lock & {
+		overflow: hidden;
+		touch-action: none;
+		overscroll-behavior: none;
+	}
+	.loaded & {
+	}
+}
+
+.wrapper {
+	min-height: 100%;
+	display: flex;
+	flex-direction: column;
+	overflow: hidden;
+	@supports (overflow: clip) {
+		overflow: clip;
+	}
+
+	> main {
+		flex: 1 1 auto;
+	}
+
+	> * {
+		min-width: 0;
+	}
+}
+
+%section-mb {
+	@include adaptiveValue('margin-bottom', 100, 40);
+}
+
+[class*='__container'],
+[class*='container'] {
+	@if ($maxWidthContainer>0) {
+		max-width: toRem($containerWidth);
+		margin: 0 auto;
+	}
+	@if ($containerPadding>0) {
+		@if ($maxWidthContainer>0) {
+			padding: 0 toRem(math.div($containerPadding, 2));
+		} @else {
+			@include adaptiveValue(
+				'padding-left',
+				math.div($containerPadding, 2),
+				15
+			);
+			@include adaptiveValue(
+				'padding-right',
+				math.div($containerPadding, 2),
+				15
+			);
+		}
+	}
+}
+
+@import 'common';
+
+@import 'header';
+@import 'footer';
+
+@import 'home';
+@import 'catalog';
+@import 'product';
+@import 'contacts';
+@import 'policy';

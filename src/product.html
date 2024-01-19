@@ -1,0 +1,206 @@
+<!DOCTYPE html>
+<html lang="ru">
+@@include('html/_head.htm',{
+"title":"HomePage"
+})
+
+<body>
+  <div class="wrapper">
+    @@include('html/_header.htm',{})
+    <main class="page">
+      <div class="page__container">
+        <div class="page__head">
+          <nav class="page__breadcrumbs breadcrumbs">
+            <ul class="breadcrumbs__list">
+              <li class="breadcrumbs__item">
+                <a href="#" class="breadcrumbs__link"><span>Главная</span></a>
+              </li>
+              <li class="breadcrumbs__item">
+                <a href="#" class="breadcrumbs__link"><span>Меблі</span></a>
+              </li>
+              <li class="breadcrumbs__item">
+                <a href="#" class="breadcrumbs__link"><span>Комоди</span></a>
+              </li>
+              <li class="breadcrumbs__item">
+                <span class="breadcrumbs__current">Назва комоду</span>
+              </li>
+            </ul>
+          </nav>
+        </div>
+      </div>
+      <section class="product">
+        <div class="product__container">
+          <h1 class="product__title title title--h1">Назва комоду</h1>
+          <div class="product__main">
+            <div class="product__images">
+              <div class="product__slider swiper">
+                <div class="product__wrapper swiper-wrapper">
+                  <a data-fancybox="gallery" href="@img/product/1.jpg" class="product__slide swiper-slide">
+                    <img class="product__slide-img" src="@img/product/1.jpg" alt="Image">
+                  </a>
+                  <a data-fancybox="gallery" href="@img/product/2.jpg" class="product__slide swiper-slide">
+                    <img class="product__slide-img" src="@img/product/2.jpg" alt="Image">
+                  </a>
+                  <a data-fancybox="gallery" href="@img/product/3.jpg" class="product__slide swiper-slide">
+                    <img class="product__slide-img" src="@img/product/3.jpg" alt="Image">
+                  </a>
+                  <a data-fancybox="gallery" href="@img/product/4.jpg" class="product__slide swiper-slide">
+                    <img class="product__slide-img" src="@img/product/4.jpg" alt="Image">
+                  </a>
+                </div>
+                <div class="product__slider-arrows">
+                  <button type="button" class="product__slider-prev swiper-button-prev"></button>
+                  <button type="button" class="product__slider-next swiper-button-next"></button>
+                </div>
+              </div>
+              <div class="product__thumbs swiper">
+                <div class="product__thumbs-wrapper swiper-wrapper">
+                  <div class="product__thumbs-slide swiper-slide">
+                    <img class="product__thumbs-slide-img" src="@img/product/1.jpg" alt="Image">
+                  </div>
+                  <div class="product__thumbs-slide swiper-slide">
+                    <img class="product__thumbs-slide-img" src="@img/product/2.jpg" alt="Image">
+                  </div>
+                  <div class="product__thumbs-slide swiper-slide">
+                    <img class="product__thumbs-slide-img" src="@img/product/3.jpg" alt="Image">
+                  </div>
+                  <div class="product__thumbs-slide swiper-slide">
+                    <img class="product__thumbs-slide-img" src="@img/product/4.jpg" alt="Image">
+                  </div>
+                  <div class="product__thumbs-slide swiper-slide">
+                    <img class="product__thumbs-slide-img" src="@img/product/1.jpg" alt="Image">
+                  </div>
+                </div>
+              </div>
+            </div>
+            <div class="product__content">
+              <div class="product__vendor-code">Артикул: <span>12345</span></div>
+              <div class="product__price">Ціна: <span>1000 грн.</span></div>
+              <form data-dev data-goto-error data-popup-message="Спасибо! С вами свяжется наш менеджер!" action="#"
+                class="product__action-form action-form">
+                <div class="action-form__field">
+                  <label for="buy-phone" class="action-form__label">КУПИТИ ЗА 1 КЛІК:</label>
+                  <input id="buy-phone" data-error="Введите номер телефона" data-required="phone" type="tel"
+                    class="action-form__input" placeholder="+380 (___) ___ __ __">
+                </div>
+                <button type="submit" class="action-form__btn button">Замовити</button>
+              </form>
+            </div>
+          </div>
+          <div class="product__bottom">
+            <div class="product__characteristics">
+              <h4 class="product__characteristics-title title title--h4">Характеристики</h4>
+              <dl class="product__characteristics-table product-characteristics-table">
+                <div class="product-characteristics-table__row">
+                  <dt class="product-characteristics-table__title">ШИРИНА</dt>
+                  <dd class="product-characteristics-table__value">186</dd>
+                </div>
+                <div class="product-characteristics-table__row">
+                  <dt class="product-characteristics-table__title">ВИСОТА</dt>
+                  <dd class="product-characteristics-table__value">86</dd>
+                </div>
+                <div class="product-characteristics-table__row">
+                  <dt class="product-characteristics-table__title">ГЛИБИНА</dt>
+                  <dd class="product-characteristics-table__value">46</dd>
+                </div>
+                <div class="product-characteristics-table__row">
+                  <dt class="product-characteristics-table__title">КОЛІР</dt>
+                  <dd class="product-characteristics-table__value">сірий</dd>
+                </div>
+                <div class="product-characteristics-table__row">
+                  <dt class="product-characteristics-table__title">МАТЕРІАЛ</dt>
+                  <dd class="product-characteristics-table__value">ЛДСП</dd>
+                </div>
+              </dl>
+            </div>
+            <div class="product__descr">
+              <h4 class="product__descr-title title title--h4">ОПИС</h4>
+              <div class="product__text">
+                <p>Lorem ipsum, dolor sit amet consectetur adipisicing elit. Assumenda provident vel facere? Ipsum sed
+                  saepe dicta nam laboriosam minima numquam architecto repudiandae. Optio perferendis odio quam
+                  repellendus aut nemo animi!</p>
+                <p>Lorem ipsum, dolor sit amet consectetur adipisicing elit. Assumenda provident vel facere? Ipsum sed
+                  saepe dicta nam laboriosam minima numquam architecto repudiandae. Optio perferendis odio quam
+                  repellendus aut nemo animi!</p>
+              </div>
+            </div>
+          </div>
+        </div>
+      </section>
+      <section class="other">
+        <div class="container">
+          <h2 class="other__title title title--h2">Інші товари</h2>
+          <div class="slider swiper">
+            <div class="slider__wrapper swiper-wrapper">
+              <div class="slider__slide swiper-slide">
+                <div class="catalog-item">
+                  <a href="#" class="catalog-item__img">
+                    <img src="@img/categories/1.png" alt="Image">
+                  </a>
+                  <div class="catalog-item__content">
+                    <h4 class="catalog-item__title title title--h4">Комоди 1</h4>
+                    <p class="catalog-item__price">Ціна: <span>2000 грн.</span></p>
+                    <a href="#" class="catalog-item__btn button">Купить</a>
+                  </div>
+                </div>
+              </div>
+              <div class="slider__slide swiper-slide">
+                <div class="catalog-item">
+                  <a href="#" class="catalog-item__img">
+                    <img src="@img/categories/1.png" alt="Image">
+                  </a>
+                  <div class="catalog-item__content">
+                    <h4 class="catalog-item__title title title--h4">Комоди 1</h4>
+                    <p class="catalog-item__price">Ціна: <span>2000 грн.</span></p>
+                    <a href="#" class="catalog-item__btn button">Купить</a>
+                  </div>
+                </div>
+              </div>
+              <div class="slider__slide swiper-slide">
+                <div class="catalog-item">
+                  <a href="#" class="catalog-item__img">
+                    <img src="@img/categories/1.png" alt="Image">
+                  </a>
+                  <div class="catalog-item__content">
+                    <h4 class="catalog-item__title title title--h4">Комоди 1</h4>
+                    <p class="catalog-item__price">Ціна: <span>2000 грн.</span></p>
+                    <a href="#" class="catalog-item__btn button">Купить</a>
+                  </div>
+                </div>
+              </div>
+              <div class="slider__slide swiper-slide">
+                <div class="catalog-item">
+                  <a href="#" class="catalog-item__img">
+                    <img src="@img/categories/1.png" alt="Image">
+                  </a>
+                  <div class="catalog-item__content">
+                    <h4 class="catalog-item__title title title--h4">Комоди 1</h4>
+                    <p class="catalog-item__price">Ціна: <span>2000 грн.</span></p>
+                    <a href="#" class="catalog-item__btn button">Купить</a>
+                  </div>
+                </div>
+              </div>
+              <div class="slider__slide swiper-slide">
+                <div class="catalog-item">
+                  <a href="#" class="catalog-item__img">
+                    <img src="@img/categories/1.png" alt="Image">
+                  </a>
+                  <div class="catalog-item__content">
+                    <h4 class="catalog-item__title title title--h4">Комоди 1</h4>
+                    <p class="catalog-item__price">Ціна: <span>2000 грн.</span></p>
+                    <a href="#" class="catalog-item__btn button">Купить</a>
+                  </div>
+                </div>
+              </div>
+            </div>
+            <div class="slider__pagination swiper-pagination"></div>
+          </div>
+        </div>
+      </section>
+    </main>
+    @@include('html/_footer.htm',{})
+  </div>
+  @@include('html/_js.htm',{})
+</body>
+
+</html>

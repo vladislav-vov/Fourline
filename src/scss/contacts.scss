@@ -1,0 +1,161 @@
+.contacts {
+	@extend %section-mb;
+
+	&__container {
+	}
+
+	&__head {
+		max-width: toRem(540);
+		margin: 0 auto toRem(30);
+		text-align: center;
+	}
+
+	&__title {
+		margin-bottom: toRem(20);
+	}
+
+	&__text {
+	}
+
+	&__form {
+		max-width: toRem(800);
+		margin: 0 auto;
+
+		&--fw {
+			max-width: 100%;
+		}
+	}
+
+	&__content {
+		@media (min-width: $tablet) {
+			display: flex;
+			gap: toRem(20);
+		}
+	}
+
+	&__items {
+		@media (max-width: $tablet) {
+			margin-bottom: toRem(30);
+		}
+	}
+
+	&__content-title {
+		margin-bottom: toRem(20);
+	}
+
+	&__item {
+		&:not(:last-child) {
+			margin-bottom: toRem(15);
+		}
+	}
+
+	&__item-title {
+		margin-bottom: toRem(8);
+	}
+
+	&__list {
+	}
+
+	&__list-item {
+		&:not(:last-child) {
+			margin-bottom: toRem(5);
+		}
+	}
+
+	&__list-link {
+		display: inline-flex;
+		align-items: center;
+		gap: toRem(10);
+		font-size: toRem(18);
+	}
+}
+
+.contacts-form {
+	display: flex;
+	flex-direction: column;
+	gap: toRem(20);
+
+	// Additional for plugin Contacts Form 7
+	// input,
+	// textarea {
+	// 	margin-bottom: toRem(20);
+	// }
+
+	&__field {
+		display: flex;
+		flex-direction: column;
+		gap: toRem(5);
+	}
+
+	&__label {
+		font-size: toRem(18);
+		color: $title-color;
+	}
+
+	&__input,
+	&__textarea {
+		width: 100%;
+		padding: toRem(10) toRem(15);
+		background-color: $bg-color;
+		border-radius: 10px;
+	}
+
+	&__row {
+		display: grid;
+		grid-template-columns: repeat(2, 1fr);
+		gap: toRem(20);
+
+		@media (max-width: em(530)) {
+			grid-template-columns: 1fr;
+		}
+	}
+
+	&__textarea {
+		max-width: 100%;
+		min-width: 100%;
+		min-height: toRem(180);
+	}
+
+	&__agree {
+	}
+
+	&__btn {
+		align-self: flex-start;
+
+		@media (max-width: $mobileSmall) {
+			align-self: center;
+			padding: toRem(10) toRem(16);
+			border-radius: 16px;
+			font-size: toRem(18);
+		}
+	}
+}
+
+.contacts-form-agree {
+	display: flex;
+	align-items: center;
+	gap: toRem(10);
+
+	&._form-error {
+		.contacts-form-agree__label {
+			border-bottom: 1px solid #be1c1f;
+		}
+	}
+
+	&__checkbox {
+	}
+
+	&__label {
+		cursor: pointer;
+
+		a {
+			color: $link-color;
+
+			@media (any-hover: hover) {
+				&:hover {
+					text-decoration: underline;
+				}
+			}
+		}
+	}
+}

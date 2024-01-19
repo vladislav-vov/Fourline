@@ -1,0 +1,208 @@
+.menu {
+	&__icon {
+	}
+	&__body {
+		@media (max-width: $mobile) {
+			position: fixed;
+			left: -100%;
+			top: 0;
+			display: flex;
+			flex-direction: column;
+			justify-content: space-between;
+			gap: toRem(30);
+			width: 100%;
+			height: 100%;
+			overflow: auto;
+			padding: toRem(80) toRem(30) toRem(40);
+			background-color: $bg-color;
+			transition: left 0.3s;
+			z-index: 9;
+
+			.menu-open & {
+				left: 0;
+				&::before {
+					left: 0;
+				}
+			}
+		}
+	}
+	&__list {
+		display: flex;
+		align-items: center;
+
+		@media (max-width: $mobile) {
+			flex-direction: column;
+			gap: toRem(15);
+		}
+	}
+	&__item {
+		@media (min-width: $mobile) {
+			position: relative;
+			border-right: 1px solid $border-color;
+
+			&:first-child {
+				border-left: 1px solid $border-color;
+			}
+		}
+	}
+	&__link {
+		padding: toRem(15) toRem(30);
+		font-weight: 500;
+		color: $title-color;
+	}
+}
+
+.sub-menu {
+	&.open {
+		.sub-menu__trigger::after {
+			transform: rotate(0) translate(0, 5px);
+		}
+	}
+
+	@media (max-width: $mobile) {
+		text-align: center;
+	}
+
+	&__list {
+		display: none;
+
+		@media (min-width: $mobile) {
+			position: absolute;
+			top: 100%;
+			left: 0;
+			min-width: toRem(200);
+			background-color: $bg-color;
+			z-index: 2;
+		}
+
+		&:hover {
+			display: block;
+		}
+	}
+
+	&__trigger {
+		&::after {
+			content: '\ea50';
+			display: none;
+			transform: rotate(-180deg) translate(0, 5px);
+			transition: transform 0.3s ease;
+			@extend %ic;
+		}
+
+		@media (max-width: $mobile) {
+			display: inline-flex;
+			align-items: center;
+			gap: toRem(5);
+			padding: toRem(5) toRem(20);
+			font-size: toRem(22);
+
+			&::after {
+				display: inline-block;
+			}
+		}
+	}
+}
+
+.sub-menu-list {
+	&__item {
+		@media (min-width: $mobile) {
+			&:not(:last-child) {
+				margin-bottom: toRem(5);
+				border-bottom: 1px solid $border-color;
+			}
+		}
+
+		@media (max-width: $mobile) {
+			text-align: center;
+		}
+	}
+
+	&__link {
+		padding: toRem(7) toRem(14);
+
+		@media (any-hover: hover) {
+			transition: all 0.3s ease;
+
+			&:hover {
+				color: $link-color;
+			}
+		}
+
+		@media (max-width: $mobile) {
+			font-size: toRem(20);
+		}
+	}
+}
+
+body.mouse {
+	.sub-menu__trigger {
+		&:hover + .sub-menu__list {
+			display: block;
+		}
+	}
+}
+
+body.touch {
+	.sub-menu.open .sub-menu__list {
+		display: block;
+	}
+
+	.sub-menu__trigger.active {
+		&::before {
+			transform: rotateY(-180deg) translate(0, 20%);
+		}
+	}
+}
+
+//Burger Icon
+.icon-menu {
+	display: none;
+	@media (max-width: $mobile) {
+		display: block;
+		position: relative;
+		width: toRem(30);
+		height: toRem(18);
+		z-index: 10;
+
+		@media (any-hover: none) {
+			cursor: default;
+		}
+
+		span,
+		&::before,
+		&::after {
+			content: '';
+			transition: all 0.3s ease 0s;
+			right: 0;
+			position: absolute;
+			width: 100%;
+			height: toRem(2);
+			background-color: #000;
+		}
+		&::before {
+			top: 0;
+		}
+		&::after {
+			bottom: 0;
+		}
+		span {
+			top: calc(50% - toRem(1));
+		}
+		.menu-open & {
+			span {
+				width: 0;
+			}
+			&::before,
+			&::after {
+			}
+			&::before {
+				top: calc(50% - toRem(1));
+				transform: rotate(-45deg);
+			}
+			&::after {
+				bottom: calc(50% - toRem(1));
+				transform: rotate(45deg);
+			}
+		}
+	}
+}

@@ -1,0 +1,91 @@
+<!DOCTYPE html>
+<html lang="ru">
+@@include('html/_head.htm',{
+"title":"HomePage"
+})
+
+<body>
+  <div class="wrapper">
+    @@include('html/_header.htm',{})
+    <main class="page">
+      <div class="page__container">
+        <div class="page__head">
+          <nav class="page__breadcrumbs breadcrumbs">
+            <ul class="breadcrumbs__list">
+              <li class="breadcrumbs__item">
+                <a href="#" class="breadcrumbs__link"><span>Главная</span></a>
+              </li>
+              <li class="breadcrumbs__item">
+                <a href="#" class="breadcrumbs__link"><span>Меблі</span></a>
+              </li>
+              <li class="breadcrumbs__item">
+                <span class="breadcrumbs__current">Комоди</span>
+              </li>
+            </ul>
+          </nav>
+        </div>
+      </div>
+      <section class="catalog">
+        <div class="catalog__container">
+          <h1 class="catalog__title title title--h1">Комоди</h1>
+          <ul class="catalog__items catalog__items--4">
+            <li class="catalog__item catalog-item">
+              <a href="#" class="catalog-item__img">
+                <img src="@img/categories/1.png" alt="Image">
+              </a>
+              <div class="catalog-item__content">
+                <h4 class="catalog-item__title title title--h4">Комоди 1</h4>
+                <p class="catalog-item__price">Ціна: <span>2000 грн.</span></p>
+                <a href="#" class="catalog-item__btn button">Купить</a>
+              </div>
+            </li>
+            <li class="catalog__item catalog-item">
+              <a href="#" class="catalog-item__img">
+                <img src="@img/categories/1.png" alt="Image">
+              </a>
+              <div class="catalog-item__content">
+                <h4 class="catalog-item__title title title--h4">Комоди 1</h4>
+                <p class="catalog-item__price">Ціна: <span>2000 грн.</span></p>
+                <a href="#" class="catalog-item__btn button">Купить</a>
+              </div>
+            </li>
+            <li class="catalog__item catalog-item">
+              <a href="#" class="catalog-item__img">
+                <img src="@img/categories/1.png" alt="Image">
+              </a>
+              <div class="catalog-item__content">
+                <h4 class="catalog-item__title title title--h4">Комоди 1</h4>
+                <p class="catalog-item__price">Ціна: <span>2000 грн.</span></p>
+                <a href="#" class="catalog-item__btn button">Купить</a>
+              </div>
+            </li>
+            <li class="catalog__item catalog-item">
+              <a href="#" class="catalog-item__img">
+                <img src="@img/categories/1.png" alt="Image">
+              </a>
+              <div class="catalog-item__content">
+                <h4 class="catalog-item__title title title--h4">Комоди 1</h4>
+                <p class="catalog-item__price">Ціна: <span>2000 грн.</span></p>
+                <a href="#" class="catalog-item__btn button">Купить</a>
+              </div>
+            </li>
+            <li class="catalog__item catalog-item">
+              <a href="#" class="catalog-item__img">
+                <img src="@img/categories/1.png" alt="Image">
+              </a>
+              <div class="catalog-item__content">
+                <h4 class="catalog-item__title title title--h4">Комоди 1</h4>
+                <p class="catalog-item__price">Ціна: <span>2000 грн.</span></p>
+                <a href="#" class="catalog-item__btn button">Купить</a>
+              </div>
+            </li>
+          </ul>
+        </div>
+      </section>
+    </main>
+    @@include('html/_footer.htm',{})
+  </div>
+  @@include('html/_js.htm',{})
+</body>
+
+</html>

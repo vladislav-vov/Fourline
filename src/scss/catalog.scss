@@ -1,0 +1,170 @@
+.catalog {
+	@extend %section-mb;
+
+	&__container {
+	}
+
+	&__items {
+		display: grid;
+		grid-template-columns: repeat(3, 1fr);
+		align-items: flex-start;
+		gap: toRem(40);
+
+		@media (max-width: em(820)) {
+			grid-template-columns: repeat(2, 1fr);
+			@include adaptiveValue('gap', 40, 20);
+		}
+
+		@media (max-width: $mobileSmall) {
+			grid-template-columns: 1fr;
+			gap: toRem(30);
+		}
+
+		&--4 {
+			grid-template-columns: repeat(4, 1fr);
+			gap: toRem(30);
+
+			@media (max-width: $tablet) {
+				grid-template-columns: repeat(3, 1fr);
+			}
+
+			@media (max-width: $mobile) {
+				grid-template-columns: repeat(2, 1fr);
+			}
+
+			@media (max-width: $mobileSmall) {
+				grid-template-columns: 1fr;
+			}
+		}
+	}
+
+	&__item {
+	}
+
+	&__title {
+		margin-bottom: toRem(30);
+	}
+
+	&__not-found {
+		display: flex;
+		flex-direction: column;
+		align-items: center;
+		gap: toRem(20);
+		text-align: center;
+
+		p {
+			@include adaptiveValue('font-size', 24, 18);
+		}
+	}
+}
+
+.catalog-item {
+	border-radius: 18px;
+	box-shadow: 2px 4px 12px rgba(0, 0, 0, 0.08);
+	overflow: hidden;
+
+	&__img {
+		width: 100%;
+		max-height: toRem(280);
+		aspect-ratio: 3/2;
+		overflow: hidden;
+
+		img {
+			width: 100%;
+			height: 100%;
+			object-fit: cover;
+			transition: all 0.3s ease;
+		}
+
+		@media (any-hover: hover) {
+			&:hover {
+				img {
+					transform: scale(1.1);
+				}
+			}
+		}
+	}
+
+	&__content {
+		display: flex;
+		flex-direction: column;
+		align-items: center;
+		gap: toRem(10);
+		padding: toRem(20);
+	}
+
+	&__title {
+		text-align: center;
+	}
+
+	&__more {
+		text-align: center;
+		font-weight: 500;
+		font-size: toRem(18);
+		color: $link-color;
+
+		@media (any-hover: hover) {
+			&:hover {
+				text-decoration: underline;
+			}
+		}
+	}
+
+	&__list {
+	}
+
+	&__row {
+		display: flex;
+		align-items: center;
+		justify-content: space-between;
+		gap: toRem(20);
+		flex-wrap: wrap;
+	}
+
+	&__price {
+		font-size: toRem(20);
+
+		span {
+			font-weight: 600;
+			color: #000;
+		}
+	}
+
+	&__btn {
+		padding: toRem(6) toRem(20);
+		font-size: toRem(20);
+		border-radius: 12px;
+	}
+}
+
+.catalog-item-list {
+	&__item {
+		position: relative;
+		padding-left: 15px;
+
+		&::before {
+			content: '';
+			position: absolute;
+			top: 8px;
+			left: 0;
+			width: 6px;
+			height: 6px;
+			border-radius: 50%;
+			background-color: rgba(#000, 0.3);
+		}
+
+		&:not(:last-child) {
+			margin-bottom: toRem(5);
+		}
+	}
+
+	&__link {
+		@media (any-hover: hover) {
+			transition: all 0.3s ease;
+
+			&:hover {
+				color: $link-color;
+			}
+		}
+	}
+}

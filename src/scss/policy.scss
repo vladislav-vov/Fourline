@@ -1,0 +1,54 @@
+.policy {
+	@extend %section-mb;
+
+	&__container {
+	}
+
+	&__title {
+		margin-bottom: toRem(30);
+		text-align: center;
+	}
+
+	&__content {
+		h1,
+		h2,
+		h3,
+		h4,
+		h5,
+		h6 {
+			font-weight: 600;
+			color: $title-color;
+
+			&:not(:last-child) {
+				margin-bottom: toRem(10);
+			}
+		}
+
+		p,
+		ul {
+			&:not(:last-child) {
+				margin-bottom: toRem(20);
+			}
+		}
+
+		li {
+			position: relative;
+			padding-left: toRem(20);
+
+			&::before {
+				content: '';
+				position: absolute;
+				top: 7px;
+				left: 0;
+				width: 6px;
+				height: 6px;
+				border-radius: 50%;
+				background-color: #000;
+			}
+
+			&:not(:last-child) {
+				margin-bottom: toRem(10);
+			}
+		}
+	}
+}

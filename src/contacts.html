@@ -1,0 +1,101 @@
+<!DOCTYPE html>
+<html lang="ru">
+@@include('html/_head.htm',{
+"title":"HomePage"
+})
+
+<body>
+  <div class="wrapper">
+    @@include('html/_header.htm',{})
+    <main class="page">
+      <div class="page__container">
+        <div class="page__head">
+          <nav class="page__breadcrumbs breadcrumbs">
+            <ul class="breadcrumbs__list">
+              <li class="breadcrumbs__item">
+                <a href="#" class="breadcrumbs__link"><span>Главная</span></a>
+              </li>
+              <li class="breadcrumbs__item">
+                <span class="breadcrumbs__current">Контакти</span>
+              </li>
+            </ul>
+          </nav>
+        </div>
+      </div>
+    </main>
+    <section class="contacts">
+      <div class="contacts__container">
+        <div class="contacts__head">
+          <h1 class="contacts__title title title--h2">ЗАМОВте ВИГОТОВЛЕННЯ МЕБЛІВ</h1>
+          <div class="contacts__text">
+            <p>Якщо ви зацікавилися нашою пропозицією або хочете дізнатися більше, то ви можете запросити зворотний
+              дзвінок за допомогою цієї контактної форми.</p>
+          </div>
+        </div>
+        <div class="contacts__content">
+          <div class="contacts__items">
+            <h3 class="contacts__content-title title title--h3">Контакти</h3>
+            <div class="contacts__item">
+              <h6 class="contacts__item-title title title--h6">Телефони для замовлення товару за телефоном:</h6>
+              <ul class="contacts__list">
+                <li class="contacts__list-item">
+                  <a href="tel:" class="contacts__list-link icon-phone">+380 (093) 019 46 14</a>
+                </li>
+              </ul>
+            </div>
+            <div class="contacts__item">
+              <h6 class="contacts__item-title title title--h6">Час роботи кол-центру:</h6>
+              <ul class="contacts__list">
+                <li class="contacts__list-item">
+                  <a href="#" class="contacts__list-link icon-clock">пн-нд - 09:00 - 19:00</a>
+                </li>
+              </ul>
+            </div>
+            <div class="contacts__item">
+              <h6 class="contacts__item-title title title--h6">Напишіть нам за адресою:</h6>
+              <ul class="contacts__list">
+                <li class="contacts__list-item">
+                  <a href="mailto:" class="contacts__list-link icon-mail">example@gmail.com</a>
+                </li>
+              </ul>
+            </div>
+          </div>
+
+          <form action="#" class="contacts__form contacts__form--fw contacts-form">
+            <div class="contacts-form__field">
+              <label for="#" class="contacts-form__label">Ваше ім'я*</label>
+              <input class="contacts-form__input" type="text">
+            </div>
+            <div class="contacts-form__row">
+              <div class="contacts-form__field">
+                <label for="#" class="contacts-form__label">Електронна пошта*</label>
+                <input class="contacts-form__input" type="email">
+              </div>
+              <div class="contacts-form__field">
+                <label for="#" class="contacts-form__label">Телефон *</label>
+                <input class="contacts-form__input" type="tel">
+              </div>
+            </div>
+            <div class="contacts-form__field">
+              <label for="#" class="contacts-form__label">Сообщение</label>
+              <textarea class="contacts-form__textarea"></textarea>
+            </div>
+            <input type="file">
+            <div class="contacts-form__agree contacts-form-agree">
+              <input type="checkbox" name="agree" id="agree" class="contacts-form-agree__checkbox">
+              <label for="agree" class="contacts-form-agree__label">
+                Я даю свою згоду на обробку персональних даних та прочитав(а) <a href="#" target="_blank">Угода компанії
+                  Fourline</a>
+              </label>
+            </div>
+            <button type="submit" class="contacts-form__btn button">Відправити</button>
+          </form>
+        </div>
+      </div>
+    </section>
+    @@include('html/_footer.htm',{})
+  </div>
+  @@include('html/_js.htm',{})
+</body>
+
+</html>

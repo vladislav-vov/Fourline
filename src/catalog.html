@@ -1,0 +1,74 @@
+<!DOCTYPE html>
+<html lang="ru">
+@@include('html/_head.htm',{
+"title":"HomePage"
+})
+
+<body>
+  <div class="wrapper">
+    @@include('html/_header.htm',{})
+    <main class="page">
+      <div class="page__container">
+        <div class="page__head">
+          <nav class="page__breadcrumbs breadcrumbs">
+            <ul class="breadcrumbs__list">
+              <li class="breadcrumbs__item">
+                <a href="#" class="breadcrumbs__link"><span>Главная</span></a>
+              </li>
+              <li class="breadcrumbs__item">
+                <span class="breadcrumbs__current">Меблі</span>
+              </li>
+            </ul>
+          </nav>
+        </div>
+      </div>
+      <section class="catalog">
+        <div class="catalog__container">
+          <h1 class="catalog__title title title--h1">Меблі</h1>
+          <!-- <div class="catalog__not-found">
+            <p>Товарів та підкатегорій не знайдено.</p>
+            <a href="javascript:history.back()" class="button">Повернутися назад</a>
+          </div> -->
+          <div class="catalog__items">
+            <a href="#" class="catalog__item catalog-item">
+              <div class="catalog-item__img">
+                <img src="@img/categories/1.png" alt="Image">
+              </div>
+              <div class="catalog-item__content">
+                <h4 class="catalog-item__title title title--h4">Комоди</h4>
+              </div>
+            </a>
+            <a href="#" class="catalog__item catalog-item">
+              <div class="catalog-item__img">
+                <img src="@img/categories/1.png" alt="Image">
+              </div>
+              <div class="catalog-item__content">
+                <h4 class="catalog-item__title title title--h4">Стулья</h4>
+              </div>
+            </a>
+            <a href="#" class="catalog__item catalog-item">
+              <div class="catalog-item__img">
+                <img src="@img/categories/1.png" alt="Image">
+              </div>
+              <div class="catalog-item__content">
+                <h4 class="catalog-item__title title title--h4">Тележки</h4>
+              </div>
+            </a>
+            <a href="#" class="catalog__item catalog-item">
+              <div class="catalog-item__img">
+                <img src="@img/categories/1.png" alt="Image">
+              </div>
+              <div class="catalog-item__content">
+                <h4 class="catalog-item__title title title--h4">Опори</h4>
+              </div>
+            </a>
+          </div>
+        </div>
+      </section>
+    </main>
+    @@include('html/_footer.htm',{})
+  </div>
+  @@include('html/_js.htm',{})
+</body>
+
+</html>
