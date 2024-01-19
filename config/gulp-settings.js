@@ -5,7 +5,7 @@ const rootFolder = nodePath.basename(nodePath.resolve());
 // Шляхи до папки з вихідними даними та папки з результатом
 const buildFolder = `./dist`;
 const buildFolderMAMP =
-	'C:MAMP\nhtdocs\nfourline_v2wp-content\nthemes\nfourlineassets';
+	'C:/MAMP/htdocs/fourline_v2/wp-content/themes/fourline/assets';
 const srcFolder = `./src`;
 
 // Шляхи до папок та файлів проекту
@@ -13,7 +13,7 @@ export const path = {
 	build: {
 		html: `${buildFolder}/`,
 		js: `${buildFolderMAMP}/js/`,
-		css: `${buildFolder}/css/`,
+		css: `${buildFolderMAMP}/css/`,
 		images: `${buildFolder}/img/`,
 		fonts: `${buildFolder}/fonts/`,
 		files: `${buildFolder}/files/`,

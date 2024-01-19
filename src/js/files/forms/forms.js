@@ -176,6 +176,18 @@ export let formValidate = {
 	},
 };
 
+function displayMessage(form, message, className) {
+	const messageElement = document.createElement('div');
+	messageElement.classList.add(className);
+	messageElement.innerHTML = `<p>${message}</p>`;
+
+	form.appendChild(messageElement);
+
+	setTimeout(() => {
+		messageElement.remove();
+	}, 5000);
+}
+
 export function formSubmit() {
 	const forms = document.forms;
 	if (forms.length) {
@@ -197,41 +209,29 @@ export function formSubmit() {
 			: 0;
 
 		if (error === 0) {
-			const ajax = form.hasAttribute('data-ajax');
-			if (ajax) {
-				e.preventDefault();
-				const formAction = form.getAttribute('action')
-					? form.getAttribute('action').trim()
-					: '#';
-				const formMethod = form.getAttribute('method')
-					? form.getAttribute('method').trim()
-					: 'GET';
-				const formData = new FormData(form);
+			e.preventDefault();
+			const formAction = form.getAttribute('action')
+				? form.getAttribute('action').trim()
+				: '#';
+			const formMethod = form.getAttribute('method')
+				? form.getAttribute('method').trim()
+				: 'GET';
+			const formData = new FormData(form);
 
-				console.log(formAction);
+			try {
+				const response = await fetch(formAction, {
+					method: formMethod,
+					body: formData,
+				});
 
-				form.classList.add('_sending');
-				try {
-					const response = await fetch(formAction, {
-						method: formMethod,
-						body: formData,
-					});
-
-					if (response.ok) {
-						let responseResult = await response.json();
-						form.classList.remove('_sending');
-						formSent(form, responseResult);
-					} else {
-						form.classList.remove('_sending');
-						formServerError(form);
-					}
-				} catch (error) {
-					form.classList.remove('_sending');
+				if (response.ok) {
+					let responseResult = await response.json();
+					formSent(form, responseResult);
+				} else {
 					formServerError(form);
 				}
-			} else if (form.hasAttribute('data-dev')) {
-				e.preventDefault();
-				formSent(form);
+			} catch (error) {
+				formServerError(form);
 			}
 		} else {
 			e.preventDefault();
@@ -248,34 +248,18 @@ export function formSubmit() {
 	}
 
 	function formServerError(form) {
-		const errorElement = document.createElement('div');
-		errorElement.classList.add('form-error-message');
-		errorElement.innerHTML = '<p>Упс! Щось пішло не так...</p>';
-
-		form.appendChild(errorElement);
-
-		setTimeout(() => {
-			errorElement.remove();
-		}, 5000);
+		displayMessage(form, 'Упс! Щось пішло не так...', 'form-error-message');
 	}
 }
 
-function formSent(form, responseResult = '') {
+function formSent(form) {
 	formValidate.formClean(form);
 
 	setTimeout(() => {
-		const popup = form.dataset.popupMessage;
-
-		if (popup) {
-			const messageElement = document.createElement('div');
-			messageElement.classList.add('form-sent-message');
-			messageElement.innerHTML = '<p>' + popup + '</p>';
-
-			form.appendChild(messageElement);
-
-			setTimeout(() => {
-				messageElement.remove();
-			}, 5000);
-		}
+		displayMessage(
+			form,
+			'Ваша заявка відправленя! С вами свяжется наш менеджер.',
+			'form-sent-message'
+		);
 	}, 0);
 }
