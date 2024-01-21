@@ -12,8 +12,8 @@ const srcFolder = `./src`;
 export const path = {
 	build: {
 		html: `${buildFolder}/`,
-		js: `${buildFolderMAMP}/js/`,
-		css: `${buildFolderMAMP}/css/`,
+		js: `${buildFolder}/js/`,
+		css: `${buildFolder}/css/`,
 		images: `${buildFolder}/img/`,
 		fonts: `${buildFolder}/fonts/`,
 		files: `${buildFolder}/files/`,

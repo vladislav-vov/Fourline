@@ -1,5 +1,4 @@
 // Hero
-
 .hero {
 	position: relative;
 	display: flex;
@@ -31,7 +30,7 @@
 	}
 
 	&__inner {
-		padding: toRem(30) 0;
+		padding: toRem(60) 0;
 	}
 
 	&__content {
@@ -40,7 +39,7 @@
 		gap: toRem(20);
 		max-width: toRem(580);
 		margin: 0 auto;
-		padding: toRem(80) 0;
+		padding: 0 0 toRem(60);
 		text-align: center;
 	}
 

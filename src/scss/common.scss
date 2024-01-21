@@ -152,6 +152,11 @@
 			margin-bottom: toRem(20);
 		}
 	}
+
+	&__slider {
+		margin: -20px;
+		padding: 20px;
+	}
 }
 
 .slider {
@@ -162,12 +167,17 @@
 	}
 
 	&__pagination.swiper-pagination {
-		bottom: 0;
+		bottom: 8px;
 		justify-content: center;
-	}
 
-	&--pb-0 {
-		padding-bottom: 0;
+		.swiper-pagination-bullet {
+			background-color: rgba(#000, 0.3);
+			opacity: 1;
+		}
+
+		.swiper-pagination-bullet.swiper-pagination-bullet-active {
+			background-color: $link-color;
+		}
 	}
 
 	&--pb-40 {

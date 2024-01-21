@@ -225,8 +225,7 @@ export function formSubmit() {
 				});
 
 				if (response.ok) {
-					let responseResult = await response.json();
-					formSent(form, responseResult);
+					formSent(form);
 				} else {
 					formServerError(form);
 				}

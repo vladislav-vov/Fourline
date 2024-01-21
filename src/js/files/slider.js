@@ -1,119 +1,118 @@
 import Swiper from 'swiper';
-import {
-	Navigation,
-	Thumbs,
-	Autoplay,
-	EffectFade,
-	Pagination,
-} from 'swiper/modules';
+import { Navigation, Thumbs, Pagination } from 'swiper/modules';
 
 import 'swiper/css';
 import 'swiper/css/navigation';
 import 'swiper/css/pagination';
 import 'swiper/css/effect-fade';
 
-window.addEventListener('DOMContentLoaded', () => {
+document.addEventListener('DOMContentLoaded', () => {
 	function updateSliderState(slider, sliderSelector) {
-		const currentSlidesPerView = slider.params.slidesPerView;
-		const sliderEl = document.querySelector(`${sliderSelector}.slider`);
+		const { slidesPerView } = slider.params;
+		const sliderEl = document.querySelector(`${sliderSelector}`);
 
-		if (slider.slides.length <= currentSlidesPerView) {
-			slider.loop = false;
-			slider.pagination.enabled = false;
-			slider.pagination.clickable = false;
-			slider.pagination.el.style.display = 'none';
-			sliderEl.classList.remove('slider--pb-40');
-			sliderEl.classList.add('slider--pb-0');
-		} else {
-			slider.pagination.el.style.display = 'flex';
-			sliderEl.classList.remove('slider--pb-0');
-			sliderEl.classList.add('slider--pb-40');
+		slider.loop =
+			slider.pagination.enabled =
+			slider.pagination.clickable =
+				slider.slides.length > slidesPerView;
+		slider.pagination.el.style.display =
+			slider.slides.length > slidesPerView ? 'flex' : 'none';
+
+		sliderEl.classList.toggle(
+			'slider--pb-40',
+			slider.slides.length > slidesPerView
+		);
+	}
+
+	const createSlider = (selector, options) => {
+		if (document.querySelector(selector)) {
+			const slider = new Swiper(selector, options);
+
+			if (options.modules && options.modules.includes(Pagination)) {
+				updateSliderState(slider, selector);
+
+				slider.on('init', () => updateSliderState(slider, selector));
+				slider.on('resize', () => updateSliderState(slider, selector));
+			}
 		}
-	}
+	};
 
-	if (document.querySelector('.portfolio__slider')) {
-		new Swiper('.portfolio__slider', {
-			modules: [Pagination, Navigation],
-			spaceBetween: 30,
-			slidesPerView: 1,
-			loop: true,
-			pagination: {
-				el: '.portfolio__slider-pagination',
-				enabled: true,
-				clickable: true,
+	createSlider('.portfolio__slider', {
+		modules: [Pagination, Navigation],
+		spaceBetween: 30,
+		slidesPerView: 1,
+		loop: true,
+		touch: true,
+		pagination: {
+			el: '.portfolio__slider-pagination',
+			enabled: true,
+			clickable: true,
+		},
+		navigation: {
+			nextEl: '.portfolio__slider-next',
+			prevEl: '.portfolio__slider-prev',
+		},
+		breakpoints: {
+			768: {
+				spaceBetween: 25,
+				slidesPerView: 2,
 			},
-			navigation: {
-				nextEl: '.portfolio__slider-next',
-				prevEl: '.portfolio__slider-prev',
+			992: {
+				slidesPerView: 3,
 			},
-			breakpoints: {
-				768: {
-					spaceBetween: 25,
-					slidesPerView: 2,
-				},
-				992: {
-					slidesPerView: 3,
-				},
-			},
-		});
-	}
+		},
+	});
 
-	if (document.querySelector('.services__slider')) {
-		new Swiper('.services__slider', {
-			modules: [Navigation],
-			spaceBetween: 30,
-			slidesPerView: 1,
-			loop: true,
-			navigation: {
-				nextEl: '.services__slider-next',
-				prevEl: '.services__slider-prev',
-			},
-		});
-	}
+	createSlider('.services__slider', {
+		modules: [Navigation],
+		spaceBetween: 30,
+		slidesPerView: 1,
+		loop: true,
+		touch: true,
+		navigation: {
+			nextEl: '.services__slider-next',
+			prevEl: '.services__slider-prev',
+		},
+	});
 
-	if (document.querySelector('.slider')) {
-		new Swiper('.slider', {
-			modules: [Pagination],
-			spaceBetween: 30,
-			slidesPerView: 1,
-			loop: true,
-			pagination: {
-				el: '.slider__pagination',
-				enabled: true,
-				clickable: true,
+	createSlider('.other__slider', {
+		modules: [Pagination],
+		spaceBetween: 30,
+		slidesPerView: 1,
+		loop: true,
+		touch: true,
+		pagination: {
+			el: '.slider__pagination',
+			enabled: true,
+			clickable: true,
+		},
+		breakpoints: {
+			480: {
+				slidesPerView: 2,
 			},
-			breakpoints: {
-				480: {
-					slidesPerView: 2,
-				},
-				768: {
-					slidesPerView: 3,
-					spaceBetween: 20,
-				},
-				992: {
-					slidesPerView: 4,
-				},
+			768: {
+				slidesPerView: 3,
+				spaceBetween: 20,
 			},
-			on: {
-				init: function (slider) {
-					updateSliderState(slider, '.slider');
-				},
-				resize: function (slider) {
-					updateSliderState(slider, '.slider');
-				},
+			992: {
+				slidesPerView: 4,
 			},
-		});
-	}
+		},
+	});
+
+	const productSliderSelector = '.product__slider';
+	const productThumbsSelector = '.product__thumbs';
 
 	if (
-		document.querySelector('.product__slider') &&
-		document.querySelector('.product__thumbs')
+		document.querySelector(productSliderSelector) &&
+		document.querySelector(productThumbsSelector)
 	) {
-		const sliderThumbs = new Swiper('.product__thumbs', {
+		const sliderThumbs = new Swiper(productThumbsSelector, {
 			spaceBetween: 10,
 			slidesPerView: 2,
 			loop: true,
 			watchOverflow: true,
+			touch: true,
 			breakpoints: {
 				600: {
 					slidesPerView: 3,
@@ -125,12 +124,13 @@ window.addEventListener('DOMContentLoaded', () => {
 			},
 		});
 
-		new Swiper('.product__slider', {
+		createSlider(productSliderSelector, {
 			modules: [Thumbs, Navigation],
 			spaceBetween: 30,
 			slidesPerView: 1,
 			loop: true,
 			watchOverflow: true,
+			touch: true,
 			thumbs: {
 				swiper: sliderThumbs,
 			},
